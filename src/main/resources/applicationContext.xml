@@ -9,7 +9,11 @@
 
     <context:component-scan base-package="edu.eci.arsw.blueprints"/>
 
-    <!-- Inyección de BlueprintPersistence -->
+    <!-- Implementaciones de persistencia -->
     <bean id="inMemorybp" class="edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence"/>
+
+    <!-- Implementaciones de filtro -->
+    <bean id="redFilter" class="edu.eci.arsw.blueprints.filter.impl.RedundancyBlueprintFilter"/>
+    <bean id="subsamFilter" class="edu.eci.arsw.blueprints.filter.impl.SubsamplingBlueprintFilter"/>
 
 </beans>

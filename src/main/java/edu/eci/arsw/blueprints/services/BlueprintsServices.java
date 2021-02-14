@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.blueprints.services;
 
+import edu.eci.arsw.blueprints.filter.BlueprintFilter;
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
@@ -25,12 +26,16 @@ public class BlueprintsServices {
     @Qualifier("inMemorybp")
     private BlueprintsPersistence bpp = null;
 
+    @Autowired
+    @Qualifier("subsamFilter")
+    private BlueprintFilter bpf = null;
+
     public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException {
         bpp.saveBlueprint(bp);
     }
 
     public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException {
-        return bpp.getAllBlueprints();
+        return bpf.filter(bpp.getAllBlueprints());
     }
 
     /**
@@ -40,7 +45,7 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if there is no such blueprint
      */
     public Blueprint getBlueprint(String author, String name) throws BlueprintNotFoundException {
-        return bpp.getBlueprint(author, name);
+        return bpf.filter(bpp.getBlueprint(author, name));
     }
 
     /**
@@ -49,14 +54,14 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if the given author doesn't exist
      */
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException {
-        return bpp.getBlueprintsByAuthor(author);
-    }
-
-    public BlueprintsPersistence getBpp() {
-        return bpp;
+        return bpf.filter(bpp.getBlueprintsByAuthor(author));
     }
 
     public void setBpp(BlueprintsPersistence bpp) {
         this.bpp = bpp;
+    }
+
+    public void setBpf(BlueprintFilter bpf) {
+        this.bpf = bpf;
     }
 }

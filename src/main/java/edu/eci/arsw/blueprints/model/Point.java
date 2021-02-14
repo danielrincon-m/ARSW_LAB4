@@ -6,11 +6,10 @@
 package edu.eci.arsw.blueprints.model;
 
 /**
- *
  * @author hcadavid
  */
 public class Point {
-   
+
     private int x;
     private int y;
 
@@ -20,8 +19,8 @@ public class Point {
     }
 
     public Point() {
-    }    
-    
+    }
+
     public int getX() {
         return x;
     }
@@ -37,7 +36,19 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
-    
-    
-    
+
+    @Override
+    public boolean equals(Object o) {
+        // If the object is compared with itself then return true
+        if (o == this) {
+            return true;
+        }
+        // Check if o is an instance of Point or not
+        if (!(o instanceof Point)) {
+            return false;
+        }
+
+        Point p = (Point) o;
+        return (p.getX() == x && p.getY() == y);
+    }
 }

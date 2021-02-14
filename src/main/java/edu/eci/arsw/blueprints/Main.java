@@ -17,18 +17,24 @@ public class Main {
         String name1 = "Nada";
         String name2 = "Feli";
 
-        Point[] pts = new Point[]{new Point(0, 0), new Point(10, 10)};
+        Point[] pts = new Point[]{new Point(0, 0), new Point(0, 10), new Point(10, 0)};
         Blueprint bpp = new Blueprint(author1, name1, pts);
         Blueprint bpd = new Blueprint(author2, name2, pts);
 
         try {
             bpServices.addNewBlueprint(bpp);
             bpServices.addNewBlueprint(bpd);
-            System.out.println(!(bpServices.getBlueprint(author1, name1) == null));
-            System.out.println(bpServices.getBlueprintsByAuthor(author2).size() == 1);
-            System.out.println(bpServices.getAllBlueprints().size() == 2);
+//            System.out.println(!(bpServices.getBlueprint(author1, name1) == null));
+//            System.out.println(bpServices.getBlueprint(author1, name1).getPoints());
+//            System.out.println(bpServices.getBlueprintsByAuthor(author2).size() == 1);
+//            System.out.println(bpServices.getAllBlueprints().size() == 2);
+            bpServices.getAllBlueprints().forEach((bp) -> bp.getPoints().forEach((p) -> System.out.println(p.getX() + " - " + p.getY())));
         } catch (BlueprintNotFoundException | BlueprintPersistenceException e) {
             e.printStackTrace();
         }
+
+//        System.out.println("-------------------");
+//        System.out.println(new Point(0, 0).equals(new Point(10, 10)));
+//        System.out.println(new Point(0, 0).equals(new Point(0, 0)));
     }
 }
