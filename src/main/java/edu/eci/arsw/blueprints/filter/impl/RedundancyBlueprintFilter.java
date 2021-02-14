@@ -29,7 +29,7 @@ public class RedundancyBlueprintFilter implements BlueprintFilter {
         for (Point p : pointsToRemove) {
             blueprintPoints.remove(p);
         }
-        return blueprint;
+        return new Blueprint(blueprint.getAuthor(), blueprint.getName(), blueprintPoints);
     }
 
     /**

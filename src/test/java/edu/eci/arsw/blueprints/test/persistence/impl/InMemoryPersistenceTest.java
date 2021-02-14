@@ -12,6 +12,8 @@ import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 import static org.junit.Assert.*;
@@ -25,12 +27,12 @@ public class InMemoryPersistenceTest {
     public void saveNewAndLoadTest() throws BlueprintPersistenceException, BlueprintNotFoundException {
         InMemoryBlueprintPersistence ibpp = new InMemoryBlueprintPersistence();
 
-        Point[] pts0 = new Point[]{new Point(40, 40), new Point(15, 15)};
+        ArrayList<Point> pts0 = new ArrayList<>(Arrays.asList(new Point(40, 40), new Point(15, 15)));
         Blueprint bp0 = new Blueprint("mack", "mypaint", pts0);
 
         ibpp.saveBlueprint(bp0);
 
-        Point[] pts = new Point[]{new Point(0, 0), new Point(10, 10)};
+        ArrayList<Point> pts = new ArrayList<>(Arrays.asList(new Point(0, 0), new Point(10, 10)));
         Blueprint bp = new Blueprint("john", "thepaint", pts);
 
         ibpp.saveBlueprint(bp);
@@ -46,7 +48,7 @@ public class InMemoryPersistenceTest {
     public void saveExistingBpTest() {
         InMemoryBlueprintPersistence ibpp = new InMemoryBlueprintPersistence();
 
-        Point[] pts = new Point[]{new Point(0, 0), new Point(10, 10)};
+        ArrayList<Point> pts = new ArrayList<>(Arrays.asList(new Point(0, 0), new Point(10, 10)));
         Blueprint bp = new Blueprint("john", "thepaint", pts);
 
         try {
@@ -55,7 +57,7 @@ public class InMemoryPersistenceTest {
             fail("Blueprint persistence failed inserting the first blueprint.");
         }
 
-        Point[] pts2 = new Point[]{new Point(10, 10), new Point(20, 20)};
+        ArrayList<Point> pts2 = new ArrayList<>(Arrays.asList(new Point(10, 10), new Point(20, 20)));
         Blueprint bp2 = new Blueprint("john", "thepaint", pts2);
 
         try {
@@ -79,7 +81,7 @@ public class InMemoryPersistenceTest {
             //Pass
         }
 
-        Point[] pts = new Point[]{new Point(0, 0), new Point(10, 10)};
+        ArrayList<Point> pts = new ArrayList<>(Arrays.asList(new Point(0, 0), new Point(10, 10)));
         Blueprint bp = new Blueprint(author, "El significado de la nada", pts);
 
         try {
@@ -88,7 +90,7 @@ public class InMemoryPersistenceTest {
             fail("Blueprint persistence failed inserting the first blueprint.");
         }
 
-        Point[] pts2 = new Point[]{new Point(10, 10), new Point(20, 20)};
+        ArrayList<Point> pts2 = new ArrayList<>(Arrays.asList(new Point(10, 10), new Point(20, 20)));
         Blueprint bp2 = new Blueprint(author, "El ocaso", pts2);
 
         try {

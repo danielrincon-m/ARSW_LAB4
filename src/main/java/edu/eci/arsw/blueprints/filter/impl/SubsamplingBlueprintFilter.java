@@ -21,7 +21,7 @@ public class SubsamplingBlueprintFilter implements BlueprintFilter {
                 blueprintPoints.remove(i);
             }
         }
-        return blueprint;
+        return new Blueprint(blueprint.getAuthor(), blueprint.getName(), blueprintPoints);
     }
 
     /**

@@ -64,7 +64,10 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
 
     @Override
     public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException {
-        Set<Blueprint> authorBlueprints = new HashSet<>(blueprints.values());
+        Set<Blueprint> authorBlueprints = new HashSet<>();
+        for (Blueprint bp : blueprints.values()) {
+            authorBlueprints.add(bp);
+        }
         if (authorBlueprints.isEmpty()) {
             throw new BlueprintNotFoundException("No existe ningún plano del autor");
         }
