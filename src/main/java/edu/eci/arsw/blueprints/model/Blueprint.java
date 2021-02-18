@@ -2,7 +2,6 @@
 package edu.eci.arsw.blueprints.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 
