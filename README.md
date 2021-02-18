@@ -30,7 +30,7 @@ se les asigna un ID como se muestra a continuación:
 
 ![](img/Context.jpg)
 
-Para realizar la inyección de dependencias, se utilizan las anotaciones @Autowired y @Qualified en la clase en la cual se 
+> Para realizar la inyección de dependencias, se utilizan las anotaciones @Autowired y @Qualified en la clase en la cual se 
 desea realizar la inyección, esto es realizado como se muestra a continuación:
 
 ![](img/Inyeccion.jpg)
@@ -42,7 +42,7 @@ desea realizar la inyección, esto es realizado como se muestra a continuación:
 Complete los operaciones getBluePrint() y getBlueprintsByAuthor(). Implemente todo lo requerido de las capas inferiores (por ahora, el esquema de persistencia disponible 'InMemoryBlueprintPersistence') agregando las pruebas correspondientes en 'InMemoryPersistenceTest'.
 
 ---
-Se realizó la impementación en la clase [InMemoryBlueprintPersistence](src/main/java/edu/eci/arsw/blueprints/persistence/impl/InMemoryBlueprintPersistence.java),
+> Se realizó la impementación en la clase [InMemoryBlueprintPersistence](src/main/java/edu/eci/arsw/blueprints/persistence/impl/InMemoryBlueprintPersistence.java),
 ya que esta es la única implementación que se tiene por el momento de la persistenca de planos.
 Esta implementación se muestra a continuación:
 
@@ -72,7 +72,7 @@ Se quiere que las operaciones de consulta de planos realicen un proceso de filtr
 
 ---
 
-Para realizar esta tarea exitosamente, se inició creando una interfaz de filtros, la cual podemos observar en la siguiente imagen:
+> Para realizar esta tarea exitosamente, se inició creando una interfaz de filtros, la cual podemos observar en la siguiente imagen:
 
 ![](img/FilterInterface.jpg)
 
@@ -86,7 +86,7 @@ De esta interfaz, extendemos dos implementaciones:
 
 ![](img/SubsamplingFilter.jpg)
 
-Con estas implementaciones realizamos la inyección de dependencias en la clase principal de servicios como
+> Con estas implementaciones realizamos la inyección de dependencias en la clase principal de servicios como
 se mostró en el primer punto y tendremos la funcionalidad de filtros completamente implementada e integrada.
 
 ### Parte V.📂
@@ -103,4 +103,4 @@ pruebas se pueden observar a continuación:
 
 ![](img/RedundancyFilterTest.jpg)
 
-El cambio de implementación se realiza cambiando el ID de la anotación en la clase principal, como se muestra en el primer punto.
+> El cambio de implementación se realiza cambiando el ID de la anotación en la clase principal, como se muestra en el primer punto.
