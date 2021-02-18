@@ -58,7 +58,7 @@ Haga un programa en el que cree (mediante Spring) una instancia de BlueprintServ
 
 ---
 
-El programa se muestra a continuación:
+> El programa se muestra a continuación:
 
  ![](img/clase%20main.jpg)
 
