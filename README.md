@@ -12,7 +12,7 @@ En este ejercicio se va a construír un modelo de clases para la capa lógica de
 
 ---
 
-### Parte I.
+### Parte I.📂
 
 ---
 Configure la aplicación para que funcione bajo un esquema de inyección de dependencias, tal como se muestra en el diagrama anterior.
@@ -36,7 +36,7 @@ desea realizar la inyección, esto es realizado como se muestra a continuación:
 ![](img/Inyeccion.jpg)
 
 
-### Parte II.
+### Parte II.📂
 
 ---
 Complete los operaciones getBluePrint() y getBlueprintsByAuthor(). Implemente todo lo requerido de las capas inferiores (por ahora, el esquema de persistencia disponible 'InMemoryBlueprintPersistence') agregando las pruebas correspondientes en 'InMemoryPersistenceTest'.
@@ -51,7 +51,7 @@ Esta implementación se muestra a continuación:
 
 
 
-### Parte III.
+### Parte III.📂
 
 ---
 Haga un programa en el que cree (mediante Spring) una instancia de BlueprintServices, y rectifique la funcionalidad del mismo: registrar planos, consultar planos, registrar planos específicos, etc.
@@ -63,7 +63,7 @@ El programa se muestra a continuación:
  ![](img/clase%20main.jpg)
 
 
-### Parte IV.
+### Parte IV.📂
 
 ---
 Se quiere que las operaciones de consulta de planos realicen un proceso de filtrado, antes de retornar los planos consultados. Dichos filtros lo que buscan es reducir el tamaño de los planos, removiendo datos redundantes o simplemente submuestrando, antes de retornarlos. Ajuste la aplicación (agregando las abstracciones e implementaciones que considere) para que a la clase BlueprintServices se le inyecte uno de dos posibles 'filtros' (o eventuales futuros filtros). No se contempla el uso de más de uno a la vez:
@@ -89,14 +89,14 @@ De esta interfaz, extendemos dos implementaciones:
 Con estas implementaciones realizamos la inyección de dependencias en la clase principal de servicios como
 se mostró en el primer punto y tendremos la funcionalidad de filtros completamente implementada e integrada.
 
-### Parte V.
+### Parte V.📂
 
 ---
 5. Agrege las pruebas correspondientes a cada uno de estos filtros, y pruebe su funcionamiento en el programa de prueba, comprobando que sólo cambiando la posición de las anotaciones -sin cambiar nada más-, el programa retorne los planos filtrados de la manera (A) o de la manera (B).
 
 ---
 
-Se implementaron pruebas estratégicas buscando que los filtros eliminen los puntos correctos según su tipo, estas
+>Se implementaron pruebas estratégicas buscando que los filtros eliminen los puntos correctos según su tipo, estas
 pruebas se pueden observar a continuación:
 
 ![](img/SubsampligFilterTest.jpg)
